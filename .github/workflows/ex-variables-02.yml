@@ -1,0 +1,19 @@
+name: "Variables - exercise 2"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Get current time
+      uses: josStorer/get-current-time@v2
+      id: current-time
+      with:
+        format: DD/MM/YYYY
+
+    - run: echo {{ steps.current-time.outputs.formattedTime }}
