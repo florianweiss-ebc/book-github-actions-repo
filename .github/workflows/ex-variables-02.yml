@@ -18,4 +18,6 @@ jobs:
 
     - run: echo ${{ steps.current-time.outputs.formattedTime }}
 
+    - run: echo ${{ github }}
+
     - run: echo "Actor=${{ github.actor }}, Repo=${{ github.action_repository }}"
