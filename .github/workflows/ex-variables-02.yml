@@ -16,6 +16,6 @@ jobs:
       with:
         format: DD/MM/YYYY
 
-    - run: echo {{ steps.current-time.outputs.formattedTime }}
+    - run: echo ${{ steps.current-time.outputs.formattedTime }}
 
-    - run: echo "Actor={{ github.actor }}, Repo={{ github.action_repository }}"
+    - run: echo "Actor=${{ github.actor }}, Repo=${{ github.action_repository }}"
