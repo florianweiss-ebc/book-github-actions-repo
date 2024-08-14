@@ -1,0 +1,17 @@
+name: Exercise - environments 02
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  dev-concurrency:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+    - run: echo "this is the development environment"
+      name: Dev
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
