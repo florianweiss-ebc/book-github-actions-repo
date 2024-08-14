@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: development
     steps:
-    - run: echo "this is the development environment"
+    - run: sleep 60 && echo "this is the development environment"
       name: Dev
 
 concurrency:
