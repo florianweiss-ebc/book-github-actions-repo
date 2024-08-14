@@ -1,0 +1,36 @@
+name: Exercise - environments 01
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+    - run: echo "this is the development environment"
+      name: Dev
+  
+  loadtesting:
+    runs-on: ubuntu-latest
+    environment: load testing
+    needs: [dev]
+    steps:
+    - run: echo "this is the load testing environment"
+      name: load test
+  
+  testing:
+    runs-on: ubuntu-latest
+    environment: testing
+    needs: [dev]
+    steps:
+    - run: echo "this is the testing environment"
+      name: test
+
+  production:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: [testing, loadtesting]
+    steps:
+    - run: echo "this is the production environment"
+      name: prod
