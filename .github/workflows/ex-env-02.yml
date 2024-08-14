@@ -2,7 +2,7 @@ name: Exercise - environments 02
 
 on:
   workflow_dispatch:
-  push:
+  #push:
 
 jobs:
   dev-concurrency:
